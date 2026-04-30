@@ -1,0 +1,72 @@
+:root {
+    --bg-color: #0f0f12;
+    --panel-bg: #1a1a20;
+    --text-main: #ffffff;
+    --text-muted: #8e8e93;
+    --accent: #4facfe;
+    --seat-std: #3a3a45;
+    --seat-premium: #f39c12;
+    --seat-disabled: #00d2d3;
+    --seat-selected: #1dd1a1;
+    --seat-occupied: #ee5253;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
+
+body { background-color: var(--bg-color); color: var(--text-main); padding: 20px; }
+
+header { text-align: center; margin-bottom: 30px; }
+header h1 { color: var(--accent); font-size: 2.2rem; margin-bottom: 5px; }
+
+.container { display: flex; gap: 20px; max-width: 1200px; margin: 0 auto; flex-wrap: wrap; }
+
+.cinema-section { flex: 2; background: var(--panel-bg); padding: 40px; border-radius: 15px; min-width: 450px; }
+
+.screen { 
+    background: #444; height: 8px; width: 80%; margin: 0 auto 50px; border-radius: 50%;
+    box-shadow: 0 15px 25px rgba(79, 172, 254, 0.4); text-align: center; color: var(--text-muted);
+    font-size: 0.7rem; letter-spacing: 10px; padding-top: 15px;
+}
+
+.seats-container { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; max-width: 450px; margin: 0 auto; }
+
+.seat {
+    aspect-ratio: 1/1; border-radius: 6px; cursor: pointer; display: flex;
+    align-items: center; justify-content: center; font-size: 0.75rem; transition: 0.2s;
+}
+
+.seat.standard { background: var(--seat-std); }
+.seat.premium { background: var(--seat-premium); color: #000; }
+.seat.disabled { background: var(--seat-disabled); color: #000; }
+.seat.selected { background: var(--seat-selected); color: #000; transform: scale(1.1); }
+.seat.occupied { background: var(--seat-occupied); cursor: not-allowed; opacity: 0.4; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--text-muted); }
+.legend-item .seat { width: 18px; height: 18px; cursor: default; }
+
+.cart-section { flex: 1; background: var(--panel-bg); padding: 25px; border-radius: 15px; display: flex; flex-direction: column; gap: 15px; min-width: 320px; }
+
+.imax-banner { background: rgba(79, 172, 254, 0.15); color: var(--accent); padding: 12px; border-radius: 8px; border: 1px dashed var(--accent); text-align: center; font-size: 0.9rem; }
+
+.timer-box { background: rgba(238, 82, 83, 0.1); color: var(--seat-occupied); padding: 10px; border-radius: 8px; text-align: center; font-weight: bold; border: 1px solid var(--seat-occupied); }
+
+.cart-items { flex-grow: 1; overflow-y: auto; max-height: 200px; display: flex; flex-direction: column; gap: 8px; }
+.cart-item { background: #25252e; padding: 10px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+.cart-item select { background: #333; color: white; border: none; padding: 4px; border-radius: 4px; font-size: 0.8rem; }
+
+.totals-box { background: #25252e; padding: 15px; border-radius: 8px; font-size: 0.9rem; }
+.total-line { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.grand-total { color: var(--accent); font-size: 1.2rem; font-weight: bold; margin-top: 8px; padding-top: 8px; border-top: 1px solid #444; }
+
+.checkout-btn { background: var(--accent); color: white; border: none; padding: 15px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.checkout-btn:disabled { background: #444; cursor: not-allowed; }
+
+/* Modal */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; justify-content: center; align-items: center; z-index: 100; }
+.hidden { display: none; }
+.modal-content { background: var(--panel-bg); padding: 30px; border-radius: 15px; width: 90%; max-width: 1000px; }
+table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.85rem; }
+th, td { padding: 12px; border-bottom: 1px solid #333; text-align: left; }
+th { color: var(--accent); }
+#close-modal-btn { background: var(--seat-selected); border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: bold; float: right; }

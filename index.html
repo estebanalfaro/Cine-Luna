@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cine Luna - Venta de Tiquetes IMAX</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Cine Luna 🌙</h1>
+        <p>Selecciona tus asientos para la función especial</p>
+    </header>
+
+    <main class="container">
+        <section class="cinema-section">
+            <div class="screen">PANTALLA</div>
+            <div class="seats-container" id="seats-container">
+                </div>
+            
+            <div class="legend">
+                <div class="legend-item"><div class="seat standard"></div> Estándar (₡4,500)</div>
+                <div class="legend-item"><div class="seat premium"></div> Premium (₡6,500)</div>
+                <div class="legend-item"><div class="seat disabled"></div> Accesibilidad</div>
+                <div class="legend-item"><div class="seat selected"></div> Seleccionado</div>
+                <div class="legend-item"><div class="seat occupied"></div> Ocupado</div>
+            </div>
+        </section>
+
+        <aside class="cart-section">
+            <div class="settings">
+                <div class="imax-banner">
+                    🎬 <strong>Función Exclusiva IMAX</strong><br>
+                    Recargo del 40% incluido en el precio.
+                </div>
+            </div>
+
+            <div class="timer-box">
+                Tiempo de reserva: <span id="timer">05:00</span>
+            </div>
+
+            <div class="cart-details">
+                <h3>Tiquetes (<span id="ticket-count">0</span>/6)</h3>
+                <div id="cart-items" class="cart-items">
+                    <p class="empty-cart">No hay asientos seleccionados.</p>
+                </div>
+            </div>
+
+            <div class="totals-box">
+                <div class="total-line">Subtotal (Base + IMAX): <span id="subtotal">₡0</span></div>
+                <div class="total-line">Descuentos aplicados: <span id="total-discounts">-₡0</span></div>
+                <div class="total-line">IVA (13%): <span id="total-iva">₡0</span></div>
+                <hr>
+                <div class="total-line grand-total">Total a Pagar: <span id="grand-total">₡0</span></div>
+            </div>
+
+            <button id="checkout-btn" class="checkout-btn" disabled>Confirmar Compra</button>
+        </aside>
+    </main>
+
+    <div id="invoice-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Factura Electrónica - Cine Luna</h2>
+            <p id="invoice-date"></p>
+            <div class="table-responsive">
+                <table id="invoice-table">
+                    <thead>
+                        <tr>
+                            <th>Asiento</th>
+                            <th>Tipo</th>
+                            <th>Cliente</th>
+                            <th>P. Base</th>
+                            <th>IMAX (+40%)</th>
+                            <th>Descuento</th>
+                            <th>IVA (13%)</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="invoice-body"></tbody>
+                </table>
+            </div>
+            <div class="invoice-summary">
+                <h3>Total Final: <span id="invoice-grand-total"></span></h3>
+            </div>
+            <button id="close-modal-btn">Finalizar y Salir</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
