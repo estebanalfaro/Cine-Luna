@@ -1,5 +1,5 @@
 # Cine Luna - IMAX Ticket Booking System
-[Link to Live Demo] https://github.com/estebanalfaro/Cine-Luna
+[Link to Live Demo] https://estebanalfaro.github.io/Cine-Luna/
 
 ## 🌙 Project Overview
 This is a web-based laboratory simulating a real-world online ticketing system for "Cine Luna". The application manages seat selection, business logic for pricing, and generates an electronic invoice for the user.
